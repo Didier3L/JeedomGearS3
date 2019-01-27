@@ -15,8 +15,8 @@ function saveJeedomValue() {
 	localStorage.setItem("SavedKey",keyValue);
 }
 
-//Load Box JSON value on start
-//Indiquer l'adresse IP/url et la clé API de Jeedom (votre_cle_API_jeedom)
+// Load Box JSON value on start
+// Indiquer l'adresse IP/url et la clé API de Jeedom (votre_cle_API_jeedom)
 
 function initJeedomJsonValue() {
 	
@@ -27,10 +27,11 @@ myIPValue =  localStorage.getItem("IP");
 console.log("KEY Value: " + myKeyValue);
 console.log("IP Value: " + myIPValue);
 
-var xhttp1;
-var xhttp2;
-var xhttp3;
+var xhttp1; // JSON-Objects
+var xhttp2; // JSON-Commands
+var xhttp3; // JSON-Scenario
 
+// JSON-Objects
 xhttp1=new XMLHttpRequest();
 xhttp1.open("POST", "http://" + myIPValue + "/core/api/jeeApi.php");
 xhttp1.setRequestHeader("Content-Type", "application/text/plain");
@@ -46,6 +47,7 @@ xhttp1.send(JSON.stringify({"jsonrpc": "2.0", "method":"object::all","params":{"
 			}
 		}
 
+// JSON-Commands
 xhttp2=new XMLHttpRequest();
 
 xhttp2.open("POST", "http://" + myIPValue + "/core/api/jeeApi.php");
@@ -61,7 +63,8 @@ xhttp2.send(JSON.stringify({"jsonrpc": "2.0", "method":"cmd::all","params":{"api
 				localStorage.setItem("JSON-Commands", JSON.stringify(data));
 			}
 		}
-				
+
+// JSON-Scenario		
 xhttp3=new XMLHttpRequest();
 
 xhttp3.open("POST", "http://" + myIPValue + "/core/api/jeeApi.php");
@@ -80,37 +83,36 @@ xhttp3.send(JSON.stringify({"jsonrpc": "2.0", "method":"scenario::all","params":
 }
 
 
-// Basic HTTP request to launch command
-// Les commandes sont en http. On peut mettre https si besoin.
+// Requette HTTP pour les Commandes
+// Les commandes sont en HTTP. On peut mettre HTTPS si besoin.
 
 
 function requestcommand(jeedomcmd)
  {
 	
-var myKeyValue, myIPValue;
+	var myKeyValue, myIPValue;
 	
-myKeyValue =  localStorage.getItem("KEY");
-myIPValue =  localStorage.getItem("IP");
-console.log("KEY Value: " + myKeyValue);
-console.log("IP Value: " + myIPValue);
+	myKeyValue =  localStorage.getItem("KEY");
+	myIPValue =  localStorage.getItem("IP");
+	console.log("KEY Value: " + myKeyValue);
+	console.log("IP Value: " + myIPValue);
 	
-var client = new XMLHttpRequest();
-client.open("GET", "http://" + myIPValue + "/core/api/jeeApi.php?apikey=" + myKeyValue + "&type=cmd&id=" + jeedomcmd );
-console.log("http://" + myIPValue + "/core/api/jeeApi.php?apikey=" + myKeyValue + "&type=cmd&id=" + jeedomcmd);
-client.onreadystatechange = function() {
-    if (client.readyState == 4) {
-        if(client.status == 200) {
-           console.log(client.responseText);
-           navigator.vibrate([500, 500, 500]);
-        }
-    }
-};
-client.send();
-};
+	var client = new XMLHttpRequest();
+	client.open("GET", "http://" + myIPValue + "/core/api/jeeApi.php?apikey=" + myKeyValue + "&type=cmd&id=" + jeedomcmd );
+	console.log("http://" + myIPValue + "/core/api/jeeApi.php?apikey=" + myKeyValue + "&type=cmd&id=" + jeedomcmd);
+	client.onreadystatechange = function() {
+		if (client.readyState == 4) {
+			if(client.status == 200) {
+			console.log(client.responseText);
+			navigator.vibrate([500, 500, 500]);
+			}
+		}
+	};
+	client.send();
+	};
 
-//Basic HTTP request to launch command
-//Les commandes sont en http. On peut mettre https si besoin.
-
+// Requette HTTP pour les Scenario
+// Les commandes sont en HTTP. On peut mettre HTTPS si besoin.
 
 function requestscenario(jeedomscenario)
 {
@@ -136,7 +138,9 @@ function requestscenario(jeedomscenario)
 	client.send();
 	};
 
-	
+// Requette HTTP pour la requete Voix
+// Les commandes sont en HTTP. On peut mettre HTTPS si besoin.
+
 function requestvoice()
 {	
 	var appControlData = new tizen.ApplicationControlData('http://tizen.org/appcontrol/data/input_type', ['input_voice']);
@@ -175,6 +179,8 @@ function requestvoice()
 	console.log('launch application done');
 };
 
+// Requette HTTP pour la requete Texte
+// Les commandes sont en HTTP. On peut mettre HTTPS si besoin.
 
 function requesttext()
 {	

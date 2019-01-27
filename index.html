@@ -10,7 +10,7 @@
 </head>
 <body onload="initJeedomValue();initJeedomJsonValue(); return false;">
 	
-<!-- Main Page -->    
+<!-- Page principal -->    
     
 	<div class="ui-page ui-page-active" id="main">
 		<header class="ui-header">
@@ -28,7 +28,7 @@
 		</div>
 	</div>
 	
-<!-- Light Swipe Page -->    
+<!-- Page Lumières Swipe -->    
     
     <div class="ui-page" id="lightsswipe">
 		<header class="ui-header ui-button">
@@ -55,8 +55,8 @@
 		<script src="js/list_swipelist.js"></script>
 	</div>
 
-<!-- Light Page --> 
-<!-- Change the xxx in the requestsite call to the proper value --> 
+<!-- Page Lumiéres --> 
+<!-- Changer le numero ID_Jeedom requestcommand de votre commande --> 
        
 	<div class="ui-page" id="lights">
 		<header class="ui-header">
@@ -64,16 +64,16 @@
 		</header>
 		<div class="ui-content">
 			<ul class="ui-listview">
-				<li> <a onclick="requestcommand(2446); return false;">Bureau On</a></li>
-				<li> <a onclick="requestcommand(2447); return false;">Bureau Off</a></li>
+				<li> <a onclick="requestcommand(ID_Jeedom); return false;">Bureau On</a></li>
+				<li> <a onclick="requestcommand(ID_Jeedom); return false;">Bureau Off</a></li>
 				</ul>
 
 		</div>
     </div>
 
    
-<!-- Alarm Page -->        
-<!-- Change the xxx in the requestsite call to the proper value --> 
+<!-- Page Alarme -->        
+<!-- Changer le numero ID_Jeedom requestcommand de votre commande --> 
     
 	<div class="ui-page" id="alarm">
 		<header class="ui-header">
@@ -81,14 +81,14 @@
 		</header>
 		<div class="ui-content">
 			<ul class="ui-listview">
-				<li> <a onclick="requestcommand(228); return false;">ON</a></li>
-				<li> <a onclick="requestcommand(229); return false;">OFF</a></li>
+				<li> <a onclick="requestcommand(ID_Jeedom); return false;">ON</a></li>
+				<li> <a onclick="requestcommand(ID_Jeedom); return false;">OFF</a></li>
 			</ul>
 		</div>
 	</div>
 
-<!-- Scenario Page -->        
-<!-- Change the xxx in the requestsite call to the proper value --> 
+<!-- Page Scenario -->        
+<!-- Changer le numero ID_Jeedom requestscenario de votre commande -->
     
     <div class="ui-page" id="scenario">
 		<header class="ui-header">
@@ -96,13 +96,13 @@
 		</header>
 		<div class="ui-content content-padding">
 			<ul class="ui-listview">
-				<li> <a onclick="requestscenario(68); return false;">Mode Télévision</a></li>
-				<li> <a onclick="requestscenario(67); return false;">Allumer le Salon</a></li>
+				<li> <a onclick="requestscenario(ID_Jeedom); return false;">Mode Télévision</a></li>
+				<li> <a onclick="requestscenario(ID_Jeedom); return false;">Allumer le Salon</a></li>
 			</ul>
 		</div>
 	</div>
 
-<!-- Voice  Page -->
+<!-- Page Voix -->
 
 	<div class="ui-page" id="voice">
 		<header class="ui-header">
@@ -117,7 +117,7 @@
     </div>
 	
 	
-<!-- Settings KEY Page -->        
+<!-- Page de configuration  -->        
     
     <div class="ui-page" id="settingskey">
 		<header class="ui-header">
@@ -138,7 +138,7 @@
    	    </footer>
 	</div>
 
- <!-- Popup Save -->        
+ <!-- Popup sauvegarde -->        
    
     <div id="popupToast" class="ui-popup ui-popup-toast toast-text-only">
         <div class="ui-popup-content">
@@ -146,7 +146,7 @@
                     has been saved
         </div>
 
- <!-- End of PAGES -->  
+ <!-- Fin des pages -->  
 	
 	<script type="text/javascript" src="lib/tau/wearable/js/tau.min.js"></script>
 	<script type="text/javascript" src="js/circle-helper.js"></script>
