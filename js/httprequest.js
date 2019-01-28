@@ -2,8 +2,8 @@
 // Indiquer l'adresse IP/url et la clé API de Jeedom (votre_cle_API_jeedom)
 
 function initJeedomValue() {
-    localStorage.setItem("IP", "192.168.1.x");
-    localStorage.setItem("KEY", "votre_cle_API_jeedom");
+    localStorage.setItem("IP", "192.168.1.250");
+    localStorage.setItem("KEY", "2ycN5TGJ1fXAkjghPaK8");
 }
 
 // Save Box value
