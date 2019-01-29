@@ -3,7 +3,7 @@
 
 function initJeedomValue() {
     localStorage.setItem("IP", "192.168.1.250");
-    localStorage.setItem("KEY", "2ycN5TGJ1fXAkjghPaK8");
+    localStorage.setItem("KEY", "votre_cle_API_jeedom");
 }
 
 // Save Box value
